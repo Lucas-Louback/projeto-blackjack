@@ -10,32 +10,32 @@
  * 
  * 
  */
-console.log("Bem-vindo(a) ao jogo de BlackJack")
-const inicio = confirm("Deseja começar um jogo?")
-const carta1Jog = comprarCarta();
-const carta2Jog = comprarCarta();
-const carta1PC = comprarCarta();
-const carta2PC = comprarCarta();
+// console.log("Bem-vindo(a) ao jogo de BlackJack")
+// const inicio = confirm("Deseja começar um jogo?")
+// const carta1Jog = comprarCarta();
+// const carta2Jog = comprarCarta();
+// const carta1PC = comprarCarta();
+// const carta2PC = comprarCarta();
 
-if (inicio === true) {
-   carta1Jog
-   carta2Jog
-   carta1PC
-   carta2PC
-   let pontUsuario = Number(carta1Jog.valor) + Number(carta2Jog.valor)
-   let pontComputador = Number(carta1PC.valor) + Number(carta2PC.valor)
-   console.log(`Usuário - cartas: ${carta1Jog.texto} ${carta2Jog.texto} - ${pontUsuario}`)
-   console.log(`Computador - cartas: ${carta1PC.texto} ${carta2PC.texto} - ${pontComputador}`)
-   if(pontUsuario > pontComputador && pontComputador <= 21){
-      console.log("O usuário venceu")
-   } else if(pontComputador > pontUsuario && pontComputador <=21){
-      console.log("O computador ganhou")
-   }else {
-      console.log("Empate")
-   }
-}else{
-   console.log("Fim do jogo")
-}
+// if (inicio === true) {
+//    carta1Jog
+//    carta2Jog
+//    carta1PC
+//    carta2PC
+//    let pontUsuario = Number(carta1Jog.valor) + Number(carta2Jog.valor)
+//    let pontComputador = Number(carta1PC.valor) + Number(carta2PC.valor)
+//    console.log(`Usuário - cartas: ${carta1Jog.texto} ${carta2Jog.texto} - ${pontUsuario}`)
+//    console.log(`Computador - cartas: ${carta1PC.texto} ${carta2PC.texto} - ${pontComputador}`)
+//    if(pontUsuario > pontComputador && pontComputador <= 21){
+//       console.log("O usuário venceu")
+//    } else if(pontComputador > pontUsuario && pontComputador <=21){
+//       console.log("O computador ganhou")
+//    }else {
+//       console.log("Empate")
+//    }
+// }else{
+//    console.log("Fim do jogo")
+// }
 
 // - [ok] O usuário deve encontrar uma mensagem de boas vindas no console ao abrir o programa
 	
