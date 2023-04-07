@@ -16,7 +16,7 @@ const inicio = confirm("Deseja começar um jogo?")
 function somaMao(array) {
    let soma = 0
    for (let i = 0; i < array.length; i++) {
-      soma += array[i];
+      soma += array[i]
    }
    return soma
 }
@@ -34,39 +34,47 @@ if (inicio === true) {
       const carta2Jog = comprarCarta();
       const carta1PC = comprarCarta();
       const carta2PC = comprarCarta();
-      let maoJogadorTexto = [carta1Jog.texto, carta2Jog.texto]
-      let maoJogadorValor = [carta1Jog.valor, carta2Jog.valor]
-      let maoComputadorTexto = [carta1PC.texto, carta2PC.texto]
-      let maoComputadorValor = [carta1PC.valor, carta2PC.valor]
+      maoJogadorTexto = [carta1Jog.texto, carta2Jog.texto]
+      maoJogadorValor = [carta1Jog.valor, carta2Jog.valor]
+      maoComputadorTexto = [carta1PC.texto, carta2PC.texto]
+      maoComputadorValor = [carta1PC.valor, carta2PC.valor]
    }
-   while (confirm(`Suas cartas são ${maoJogadorTexto}. A carta revelada do computador é ${carta1PC.texto}.\nDeseja comprar mais uma carta?`) === true) {
+   while (confirm(`Suas cartas são ${maoJogadorTexto}. A carta revelada do computador é ${carta1PC.texto}.\nDeseja comprar mais uma carta?`) === true && somaMao(maoComputadorValor) <= 21) {
       let cartaNova = comprarCarta();
       maoJogadorTexto.push(cartaNova.texto)
       maoJogadorValor.push(cartaNova.valor)
-      if (somaMao(maoComputadorValor) < somaMao(maoJogadorValor)) {
-         let cartaNova = comprarCarta();
+      if (somaMao(maoComputadorValor) < somaMao(maoJogadorValor) ) {
+         let cartaNova = comprarCarta()
          maoComputadorTexto.push(cartaNova.texto)
          maoComputadorValor.push(cartaNova.valor)
          if (somaMao(maoJogadorValor) > 21) {
             alert(`Usuário - Cartas: ${maoJogadorTexto} - Pontuação: ${somaMao(maoJogadorValor)}\nComputador - Cartas: ${maoComputadorTexto} - Pontuação: ${somaMao(maoComputadorValor)}\nVocê perdeu`)
+            break
          }
          if (somaMao(maoComputadorValor) > 21) {
             alert(`Usuário - Cartas: ${maoJogadorTexto} - Pontuação: ${somaMao(maoJogadorValor)}\nComputador - Cartas: ${maoComputadorTexto} - Pontuação: ${somaMao(maoComputadorValor)}\nVocê Ganhou`)
+            break
          }
       }
 
    }
-   while (somaMao(maoComputadorValor) < somaMao(maoJogadorValor) && somaMao(maoComputadorValor) < 21) {
+   if (somaMao(maoComputadorValor) <= 21 && somaMao(maoJogadorValor <=21)){
+   while (somaMao(maoComputadorValor) < somaMao(maoJogadorValor) && somaMao(maoJogadorValor) < 21) {
       let cartaNova = comprarCarta();
       maoComputadorTexto.push(cartaNova.texto)
       maoComputadorValor.push(cartaNova.valor)
    }
+   }
    if (somaMao(maoJogadorValor) > somaMao(maoComputadorValor) && somaMao(maoJogadorValor) <= 21 || somaMao(maoComputadorValor) > 21 && somaMao(maoJogadorValor) <= 21) {
       alert(`Usuário - Cartas: ${maoJogadorTexto} - Pontuação: ${somaMao(maoJogadorValor)}\nComputador - Cartas: ${maoComputadorTexto} - Pontuação: ${somaMao(maoComputadorValor)}\nVocê Ganhou`)
-   } else if (somaMao(maoJogadorValor) < somaMao(maoComputadorValor) && somaMao(maoComputadorValor) <= 21) {
+
+   }
+   if (somaMao(maoJogadorValor) < somaMao(maoComputadorValor) && somaMao(maoComputadorValor) <= 21) {
       alert(`Usuário - Cartas: ${maoJogadorTexto} - Pontuação: ${somaMao(maoJogadorValor)}\nComputador - Cartas: ${maoComputadorTexto} - Pontuação: ${somaMao(maoComputadorValor)}\nVocê perdeu`)
-   } else {
+   } 
+   if(somaMao(maoJogadorValor) === somaMao(maoComputadorValor) && somaMao(maoJogadorValor) <= 21){
       alert(`Usuário - Cartas: ${maoJogadorTexto} - Pontuação: ${somaMao(maoJogadorValor)}\nComputador - Cartas: ${maoComputadorTexto} - Pontuação: ${somaMao(maoComputadorValor)}\nEmpate`)
+      
    }
 } else {
    alert("Acabou o jogo")
